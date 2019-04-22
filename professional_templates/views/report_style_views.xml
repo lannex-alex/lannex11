@@ -97,7 +97,7 @@
                                     To upload your watermark design in PDF format for each report, go to <code>Settings <span class="fa fa-long-arrow-right"/> Technical <span class="fa fa-long-arrow-right"/> Actions <span class="fa fa-long-arrow-right"/> Reports </code> and search for <code>professional_templates</code> then open each of the report and proceed to <code>Advanced Properties</code> where you can upload your PDF. The PDF will form the background of your report as shown in example below.
                                 </div>
                                 <div class="text-center mt16">
-                                    <img style="display:inline-block;" width="50%" src="/professional_templates/static/description/wm.png"/>
+                                    <img alt="Watermark Example" style="display:inline-block;" width="50%" src="/professional_templates/static/description/wm.png"/>
                                  </div>
                         </page>
                     </notebook>

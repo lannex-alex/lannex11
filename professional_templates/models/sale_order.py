@@ -43,14 +43,14 @@ class SO(models.Model):
     def onchange_partner_style(self):
         """ @onchage method to assign style to a document based on chosen partner"""
 
-        self.style = self.partner_id.style or self.env.user.company_id.default_style or\
-            self.env.ref('professional_templates.default_style_for_all_reports').id
+        self.style = self.partner_id.style or self.env.user.company_id.df_style or\
+            self.env.ref('professional_templates.df_style_for_all_reports').id
 
     style = fields.Many2one(
         'report.template.settings',
         'Quote/Order Style',
         help="Select Style to use when printing the Sales Order or Quote",
-        default=lambda self: self.partner_id.style or self.env.user.company_id.default_style)
+        default=lambda self: self.partner_id.style or self.env.user.company_id.df_style)
     project_title = fields.Char(
         'Title',
         help="The title of your customer project or work you are doing for your customer")
@@ -62,8 +62,8 @@ class SO(models.Model):
     @api.one
     def _compute_num2words(self):
         style = self.style or self.partner_id.style or \
-            self.env.user.company_id.default_style or self.env.ref(
-                'professional_templates.default_style_for_all_reports').id
+            self.env.user.company_id.df_style or self.env.ref(
+                'professional_templates.df_style_for_all_reports')
         if style and style.aiw_report:
             try:
                 self.amount_words = (

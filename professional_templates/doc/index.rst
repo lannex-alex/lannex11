@@ -10,7 +10,7 @@ Pre-Installation Requirements
   - You can install it using the ``pip3`` command: `pip3 install pypdf2` 
 
 - Download and install the latest version of ``wkhtmltopdf``. 
-  - We recommend version ``0.12.4 (with patched qt)``
+  - We recommend version ``0.12.4 (with patched qt) or higher`` 
 
 
 Installation
@@ -41,7 +41,7 @@ Please refer to ``Module Description`` for illustrated steps on how to choose on
 Compatibility
 ------------
 
-- Fully Supports Odoo Version 11.0 Community and Enterprise Editions
+- Fully Supports Odoo Version 12.0
 
 
 Frequently Asked Questions (FAQs)

@@ -39,8 +39,8 @@ class InvoiceTemplates(models.Model):
     @api.multi
     @api.onchange('partner_id')
     def onchange_partner_style(self):
-        self.style = self.partner_id.style or self.env.user.company_id.default_style or self.env.ref(
-            'professional_templates.default_style_for_all_reports')
+        self.style = self.partner_id.style or self.env.user.company_id.df_style or self.env.ref(
+            'professional_templates.df_style_for_all_reports')
 
     @api.model
     def create(self, vals):
@@ -53,7 +53,7 @@ class InvoiceTemplates(models.Model):
         'report.template.settings',
         'Invoice Style',
         help="Select Style to use when printing this invoice",
-        default=lambda self: self.partner_id.style or self.env.user.company_id.default_style)
+        default=lambda self: self.partner_id.style or self.env.user.company_id.df_style)
     project_title = fields.Char(
         'Title',
         help="The title of your customer project or work you are doing for your customer")
@@ -64,8 +64,8 @@ class InvoiceTemplates(models.Model):
 
     @api.one
     def _compute_num2words(self):
-        style = self.style or self.partner_id.style or self.env.user.company_id.default_style or self.env.ref(
-            'professional_templates.default_style_for_all_reports')
+        style = self.style or self.partner_id.style or self.env.user.company_id.df_style or self.env.ref(
+            'professional_templates.df_style_for_all_reports')
         if style and style.aiw_report:
             try:
                 self.amount_words = (

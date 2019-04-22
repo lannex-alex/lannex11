@@ -43,4 +43,4 @@ class ResPartner(models.Model):
         'report.template.settings',
         'Reports Style',
         help="Select a style to use when printing reports for this customer",
-        default=lambda self: self.env.user.company_id.default_style)
+        default=lambda self: self.env.user.company_id.df_style)

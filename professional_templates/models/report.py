@@ -31,7 +31,7 @@
 #########COPYRIGHT#####
 # © 2017 Bernard K Too<bernard.too@optima.co.ke>
 """
-from base64 import b64decode
+from base64 import urlsafe_b64decode
 from logging import getLogger
 import io
 from PyPDF2 import PdfFileWriter, PdfFileReader
@@ -60,9 +60,9 @@ class PDFReport(models.Model):
             watermark = report.pdf_watermark or report.env.user.company_id.pdf_watermark or None
             last_page = report.pdf_last_page or report.env.user.company_id.pdf_last_page or None
             if watermark:
-                watermark = b64decode(watermark)
+                watermark = urlsafe_b64decode(watermark)
             if last_page:
-                last_page = b64decode(last_page)
+                last_page = urlsafe_b64decode(last_page)
             if not watermark and not last_page:
                 return result
             pdf = PdfFileWriter()
