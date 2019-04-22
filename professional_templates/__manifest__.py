@@ -39,7 +39,7 @@
     'category': 'Accounting & Finance',
     'images': ['static/description/main.png'],
 
-    'version': '0.2',
+    'version': '0.7',
     'price': 129,
     'currency': 'EUR',
     # any module necessary for this one to work correctly
@@ -59,7 +59,6 @@
         'views/category.xml',
         'views/report_style_views.xml',
         'views/ir_actions_report_xml.xml',
-        'views/realcom_invoice_footer.xml',
 
         'reports/invoice_reports.xml',
         'reports/sale_order_reports.xml',
@@ -69,7 +68,7 @@
         'reports/stock_picking_report.xml',
 
         'invoice/invoice_lines.xml',
-        'invoice/realcom_lines.xml',
+        'invoice/ascend_invoice_lines.xml',
         'invoice/switch_templates.xml',
         'invoice/dl_envelope.xml',
         'invoice/modern_template.xml',
@@ -83,13 +82,12 @@
         'invoice/slim_template.xml',
         'invoice/cubic_template.xml',
         'invoice/clean_template.xml',
-        'invoice/realcom_template.xml',
         'invoice/100miles_template.xml',
+        'invoice/ascend_template.xml',
         'invoice/account_invoice_view.xml',
-        'invoice/invoice_lines_no_layout.xml',
 
         'sale_order/order_lines.xml',
-        'sale_order/realcom_order_lines.xml',
+        'sale_order/order_lines_ascend.xml',
         'sale_order/switch_templates.xml',
         'sale_order/sale_order_view.xml',
         'sale_order/odoo_template.xml',
@@ -103,10 +101,11 @@
         'sale_order/cubic_template.xml',
         'sale_order/clean_template.xml',
         'sale_order/modern_template.xml',
-        'sale_order/realcom_template.xml',
         'sale_order/100miles_template.xml',
+        'sale_order/ascend_template.xml',
 
         'purchase_order/purchase_lines.xml',
+        'purchase_order/purchase_lines_ascend.xml',
         'purchase_order/switch_templates.xml',
         'purchase_order/purchase_order_view.xml',
         'purchase_order/odoo_template.xml',
@@ -120,9 +119,11 @@
         'purchase_order/slim_template.xml',
         'purchase_order/cubic_template.xml',
         'purchase_order/clean_template.xml',
+        'purchase_order/ascend_template.xml',
 
 
         'rfq/rfq_lines.xml',
+        'rfq/rfq_lines_ascend.xml',
         'rfq/switch_templates.xml',
         'rfq/rfq_view.xml',
         'rfq/odoo_template.xml',
@@ -136,9 +137,11 @@
         'rfq/slim_template.xml',
         'rfq/cubic_template.xml',
         'rfq/clean_template.xml',
+        'rfq/ascend_template.xml',
 
         'delivery_note/switch_templates.xml',
         'delivery_note/delivery_lines.xml',
+        'delivery_note/delivery_lines_ascend.xml',
         'delivery_note/delivery_note_view.xml',
         'delivery_note/odoo_template.xml',
         'delivery_note/retro_template.xml',
@@ -151,9 +154,11 @@
         'delivery_note/slim_template.xml',
         'delivery_note/cubic_template.xml',
         'delivery_note/clean_template.xml',
+        'delivery_note/ascend_template.xml',
 
         'picking/switch_templates.xml',
         'picking/picking_lines.xml',
+        'picking/picking_lines_ascend.xml',
         'picking/picking_view.xml',
         'picking/odoo_template.xml',
         'picking/retro_template.xml',
@@ -166,6 +171,7 @@
         'picking/slim_template.xml',
         'picking/cubic_template.xml',
         'picking/clean_template.xml',
+        'picking/ascend_template.xml',
 
 
         'carrier/delivery_report.xml',
@@ -176,7 +182,7 @@
     ],
     # only loaded in demonstration mode
     'demo': [
-        #'demo.xml',
+        # 'demo.xml',
     ],
     'installable': True,
     'auto_install': False,

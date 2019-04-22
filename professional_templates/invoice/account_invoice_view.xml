@@ -22,7 +22,7 @@
 		 </xpath>
 	    </field>
 	</record>
-<record id="account.report_invoice_document" model="ir.ui.view">
+<record id="account.report_invoice_document_with_payments" model="ir.ui.view">
   <field name="name">Odoo Invoice</field>
 </record>
     </data>

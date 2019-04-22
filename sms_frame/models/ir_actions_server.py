@@ -1,5 +1,6 @@
 # -*- coding: utf-8 -*-
-from openerp import api, fields, models
+from odoo import api, fields, models
+
 
 class IrActionsServer(models.Model):
 
@@ -12,5 +13,6 @@ class IrActionsServer(models.Model):
     def run_action_sms(self, action, eval_context=None):
         if not action.sms_template_id:
             return False
-        self.env['sms.template'].send_sms(action.sms_template_id.id, self.env.context.get('active_id'))
+        self.env['sms.template'].send_sms(action.sms_template_id.id,
+                                          self.env.context.get('active_id'))
         return False

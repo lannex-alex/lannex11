@@ -42,7 +42,7 @@ class ReportDefaultSettings(models.Model):
     twitter = fields.Char('Twitter Handle')
     googleplus = fields.Char('Google-Plus ID')
 
-    default_style = fields.Many2one(
+    df_style = fields.Many2one(
         'report.template.settings',
         'Default Style',
         help="If no other report style is specified during the printing of document,\

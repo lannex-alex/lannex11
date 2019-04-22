@@ -43,7 +43,7 @@ class PK(models.Model):
         'report.template.settings',
         'Picking Style',
         help="Select Style to use when printing the picking slip",
-        default=lambda self: self.partner_id.style or self.env.user.company_id.default_style)
+        default=lambda self: self.partner_id.style or self.env.user.company_id.df_style)
 
     @api.model
     def create(self, vals):

@@ -130,7 +130,8 @@ class TemplateSettings(models.Model):
                  'qweb')],
             order='key asc',
             limit=1)
-        return def_tpl or self.env.ref('account.report_invoice_document')
+        return def_tpl or self.env.ref(
+            'account.report_invoice_document_with_payments')
 
     name = fields.Char(
         'Name of Style',
