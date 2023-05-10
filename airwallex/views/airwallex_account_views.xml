@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="airwallex_account_view_form" model="ir.ui.view">
+        <field name="name">airwallex.account.view.form</field>
+        <field name="model">airwallex.account</field>
+        <field name="arch" type="xml">
+            <form>
+                <field name="is_balance_created" invisible="1" />
+                <header>
+                    <button string="Renew Authentication" name="authenticate" type="object" class="oe_highlight" groups="airwallex.group_airwallex_admin"/>
+                    <button string="Get Airwallex Balance" name="get_airwallex_balance" type="object" class="oe_highlight" attrs="{'invisible': [('is_balance_created', '=', True)]}"/>
+                    <button string="Refresh Airwallex Balance" name="action_get_list_transactions" type="object" class="oe_highlight" attrs="{'invisible': [('is_balance_created', '=', False)]}"/>
+                </header>
+                <sheet>
+                    <h1>
+                        <field name="name"/>
+                    </h1>
+                    <group>
+                        <group string="Information">
+                            <field name="company_id"/>
+                        </group>
+                        <group string="Configuration">
+                            <field name="auth_type" />
+                            <field name="environment" />
+                            <field name="sync_period" />
+                            <field name="bank_statement_period" />
+                            <field name="airwallex_account_created_at" readonly="1"/>
+                        </group>
+                    </group>
+                    <group groups="airwallex.group_airwallex_admin" attrs="{'invisible': [('auth_type', 'not in', ['api'])]}">
+                        <field name="client_id"/>
+                        <field name="api_key" password="1" style="overflow-wrap: anywhere;"/>
+                    </group>
+                    <group groups="airwallex.group_airwallex_admin" attrs="{'invisible': [('auth_type', 'not in', ['oauth2'])]}">
+                        <button string="OAuth2 Authentificaton" name="get_client_oauth2" type="object" class="oe_highlight" groups="airwallex.group_airwallex_admin"/>
+                        <field name="oauth2_client_id"/>
+                        <field name="oauth2_secret"/>
+                        <field name="oauth2_refresh_token" style="overflow-wrap: anywhere;"/>
+                        <field name="oauth2_refresh_token_expired_at" style="overflow-wrap: anywhere;"/>
+                        <field name="oauth2_error" style="overflow-wrap: anywhere;" attrs="{'invisible': [('oauth2_error', '=', False)]}"/>
+                    </group>
+                    <group groups="base.group_no_one">
+                        <field name="token" style="overflow-wrap: anywhere;"/>
+                        <field name="expired_at"/>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record id="airwallex_account_view_tree" model="ir.ui.view">
+        <field name="name">airwallex.account.view.tree</field>
+        <field name="model">airwallex.account</field>
+        <field name="arch" type="xml">
+            <tree>
+                <field name="name"/>
+                <field name="company_id"/>
+                <field name="api_key" optional="hide"/>
+                <field name="environment" optional="hide"/>
+                <field name="token" optional="hide"/>
+                <field name="expired_at"/>
+            </tree>
+        </field>
+    </record>
+</odoo>

@@ -1,0 +1,33 @@
+{
+    'name': 'Airwallex Bank Feed',
+    'version': '15.0.0.0.3',
+    'sequence': 99,
+    'category': 'Accounting',
+    'summary': 'Airwallex official Odoo plugin',
+    'description': """
+       Module to integrate Airwallex with Odoo
+    """,
+    'website': 'https://www.airwallex.com',
+    'author': 'Airwallex.',
+    'images': [],
+    'depends': ['base', 'account'],
+    'data': [
+        'security/airwallex_security.xml',
+        'security/ir.model.access.csv',
+        'data/ir_cron_data.xml',
+        'views/airwallex_account_views.xml',
+        'views/airwallex_balance_views.xml',
+        'views/airwallex_statement_views.xml',
+        'views/account_journal.xml',
+        'views/airwallex_views.xml',
+        'views/account_bank_statement_views.xml',
+        'views/airwallex_auth_log_views.xml',
+        'wizard/airwallex_edit_journal_wizard_views.xml',
+    ],
+    'installable': True,
+    'auto_install': False,
+    'application': True,
+    'license': 'AGPL-3',
+    'price': 0,
+    'images': ['static/description/banner.png'],
+}

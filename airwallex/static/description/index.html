@@ -1,0 +1,241 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+        <title>
+            Airwallex Bank Feed
+        </title>
+    </head>
+    <body>
+        <h1 style="font-size: 3rem; font-weight: 700; margin-bottom:1rem !important">
+            Airwallex Bank Feed
+        </h1>
+        <p class="greenblue" style="display:block; font-size: 1.3rem !important;">
+            Airwallex Odoo module helps you to connect Odoo and Airwallex.
+        </p>
+        <br/>
+        
+        <div class="contents local topic" id="features">
+            <h2 style="font-size: 2.3rem; font-weight: 600; color: #007c8d; margin-bottom:1rem !important">
+                Features
+            </h2>
+
+            <ul  style="font-size: 1rem !important; font-weight:400">
+                <li>Synchronisation of wallet from Airwallex to Odoo</li>
+                <li>Synchronisation of bank statement from Airwallex to Odoo</li>
+            </ul>
+        </div>
+        <br/>
+
+        <div class="contents local topic" id="usage">
+            <h2 style="font-size: 2.3rem; font-weight: 600; color: #007c8d; margin-bottom:1rem !important">
+                1. Installation
+            </h2>
+
+            <h3 style="font-size: 1.7rem; font-weight: 600; color: #007c8d; margin-bottom:1rem !important">
+                1.1. Download
+            </h3>
+            <ul style="font-size: 1rem !important; font-weight:400">
+                <li>To get started with the Airwallex module, you need to download the supported version. 
+                    Choose from Version 16, Version 15, or Version 14.</li><br/>
+            </ul>
+
+            <h3 style="font-size: 1.7rem; font-weight: 600; color: #007c8d; margin-bottom:1rem !important">
+                1.2. Install module on the Odoo
+            </h3>
+            <ul style="font-size: 1rem !important; font-weight:400">
+                <li>
+                    After downloading the correct version, unzip the module and place it in the add-ons 
+                    folder on your server. Then, log in as an administrator and go to the 
+                    Applications menu. Click on 'Update Apps list' to refresh the module list. 
+                    Now you can see the Airwallex application and click on 'Install'.
+                    <br/><img src="assets/screenshots/01_install.png" class="img-thumbnail" style="width: 80% !important; height: auto;">
+                </li><br/>
+            </ul><br/>
+
+
+            <h2 style="font-size: 2.3rem; font-weight: 600; color: #007c8d; margin-bottom:1rem !important">
+                2. Configure Airwallex
+            </h2>
+
+            <h3 style="font-size: 1.7rem; font-weight: 600; color: #007c8d; margin-bottom:1rem !important">
+                2.1. Application Overview
+            </h3>
+            <ul style="font-size: 1rem !important; font-weight:400">
+                <li>
+                    After installation, the Airwallex application will appear on the main menu. 
+                    If you can't see the application, ensure that the logged-in user has at least 
+                    Airwallex user access rights.
+                    <br/><img src="assets/screenshots/02_dashboard.png" class="img-thumbnail" style="width: 80% !important; height: auto;">
+                    <br/><br/><img src="assets/screenshots/03_access.png" class="img-thumbnail" style="width: 80% !important; height: auto;">
+                    <br/>
+                </li><br/>
+            </ul><br/>
+
+            <h3 style="font-size: 1.7rem; font-weight: 600; color: #007c8d; margin-bottom:1rem !important">
+                2.2. Create account and login
+            </h3>
+            <ul style="font-size: 1rem !important; font-weight:400">
+                <li>
+                    The first step after installation is to create an Airwallex account. 
+                    To create an account, go to Airwallex &rarr; Configuration &rarr; Airwallex Account 
+                    and create a new account.
+                    <br/><img src="assets/screenshots/04_create.png" class="img-thumbnail" style="width: 80% !important; height: auto;">
+                    <br/><strong>Note: </strong>Ensure that you choose the correct environment 
+                    (demo for staging or production for real credentials) 
+                    while entering your credentials
+                    <br/>
+                </li><br/>
+            </ul><br/>
+
+            <h4 style="font-size: 1.5rem; font-weight: 500; margin-bottom:1rem !important">
+                OAuth2 Authentication
+            </h3>
+            <ul style="font-size: 1rem !important; font-weight:400">
+                <li>
+                    OAuth2 authentication is the preferred way to register an account. 
+                    To do this, please contact Airwallex via email
+                    <a class="reference external" href="mailto:strategic&ndash;partnership&#64;airwallex.com">(strategic-partnership@airwallex.com)</a>
+                    to set up the callback URL and get the authentication credentials. 
+                    Enter the credentials and click the 'OAuth2 Authentication' button to trigger the 
+                    first authentication.
+                    <br/><img src="assets/screenshots/05_oauth.png" class="img-thumbnail" style="width: 80% !important; height: auto;">
+                    <br/><br/><img src="assets/screenshots/06_renew.png" class="img-thumbnail" style="width: 80% !important; height: auto;">
+                    <br/><br/><img src="assets/screenshots/07_oauth.png" class="img-thumbnail" style="width: 80% !important; height: auto;">
+                    <br/>Follow the OAuth2 flow to allow Odoo to fetch the credentials.
+                    <br/>Finally, click on the ‘Get Airwallex balance’ button to fetch all wallet data 
+                    from Airwallex and sync it with your Odoo account.
+                    <br/><br/><img src="assets/screenshots/08_balance.png" class="img-thumbnail" style="width: 80% !important; height: auto;">
+                    <br/>You can check the synchronized wallets by going to the Airwallex wallet tab.
+                    <br/><br/><img src="assets/screenshots/09_wallet.png" class="img-thumbnail" style="width: 80% !important; height: auto;">
+                    <br/><strong>Note: </strong>We will only sync currencies that are active in Odoo - 
+                    refer to section ‘Set up currencies’ below to activate more currency feeds Odoo 
+                    will only sync active currencies. To activate additional currencies, 
+                    search for ‘currencies’ on the main dashboard, activate the required currency, 
+                    and then click on the 'Refresh Airwallex balance' button.
+                    <br/><br/>On the account page, you can choose the frequency of Airwallex balance update and bank statement posting. For more information, refer to the 'Refresh frequency' section below.
+                    <br/><img src="assets/screenshots/091_account.png" class="img-thumbnail" style="width: 80% !important; height: auto;">
+                    <br/><strong>Note: </strong>The bank statement feature has been removed in version 16, 
+                    so there is no need to post the bank statement.
+                </li><br/>
+            </ul><br/>
+
+            <h3 style="font-size: 1.7rem; font-weight: 600; color: #007c8d; margin-bottom:1rem !important">
+                2.3. Setup Currencies
+            </h3>
+            <ul style="font-size: 1rem !important; font-weight:400">
+                <li>
+                    In Odoo, we can only synchronize an Airwallex wallet if the currency is active in Odoo. 
+                    Therefore, if a wallet is not syncing in Odoo, check the status of the currency by 
+                    searching for ‘currencies’ on the main dashboard.
+                    <br/><img src="assets/screenshots/092_currency.png" class="img-thumbnail" style="width: 80% !important; height: auto;">
+                    
+                    <br/>On this page you can activate the required currency:
+                    <br/><br/><img src="assets/screenshots/092_activate_currency.png" class="img-thumbnail" style="width: 80% !important; height: auto;">
+
+                    <br/>Then, go back to your Airwallex account and click on the 
+                    button ‘Refresh Airwallex balance’
+                    <br/><br/><img src="assets/screenshots/092_activate_currency.png" class="img-thumbnail" style="width: 80% !important; height: auto;">
+
+                    <br/>Now, you can see that the new wallet synchronized in Airwallex Wallet
+                    <br/><br/><img src="assets/screenshots/092_currency_wallet.png" class="img-thumbnail" style="width: 80% !important; height: auto;">
+                    <br/>
+                </li><br/>
+            </ul><br/>
+
+            <h3 style="font-size: 1.7rem; font-weight: 600; color: #007c8d; margin-bottom:1rem !important">
+                2.4. Initiate Your Bank Account Journal
+            </h3>
+            <ul style="font-size: 1rem !important; font-weight:400">
+                <li>
+                    This is the last step to synchronize the transaction from your wallet to Odoo. 
+                    Open the Airwallex wallet that you want to configure by clicking on the name.
+                    Then configure the journal for the wallet:
+                    <br/><img src="assets/screenshots/11_config.png" class="img-thumbnail" style="width: 80% !important; height: auto;">
+                    <br/> <strong>Note: </strong>Only user with Airwallex Administrator can see the Edit button
+                </li><br/>
+                <li>
+                    After clicking on the 'Edit' button, you will be shown a dialog box
+                    <br/><img src="assets/screenshots/12_popup.png" class="img-thumbnail" style="width: 80% !important; height: auto;">
+                    <ul>
+                        <li>The journal you want to assign the wallet to</li>
+                        <li>The Initialisation method:
+                            <ul>
+                                <li>Import historical data
+                                    <br/>Will import all the data from the date you will choose</li>
+                                <li>
+                                    Set initial balance
+                                    <br/>Will create only one record with the current balance
+                                </li>
+                                <li>
+                                    None
+                                    <br/>Will not initialize the journal
+                                </li>
+                            </ul>
+                        </li>
+                    </ul>
+                </li><br/>
+                <li>Choose the journal and the method according to what you want to do. </li>
+                <li>
+                    In the following example, we will <strong>Import historical data</strong>
+                    <br/><img src="assets/screenshots/13_import.png" class="img-thumbnail" style="width: 80% !important; height: auto;">
+                    <br/>Once you click on 'Apply', Odoo will fetch all the records until the chosen 
+                    date and create a bank statement record with all the lines. 
+                </li><br/>
+                <li>
+                    You can see the bank statement by clicking on the button on the top right on the wallet:
+                    <br/><img src="assets/screenshots/14_statement.png" class="img-thumbnail" style="width: 80% !important; height: auto;">
+                    <br/><img src="assets/screenshots/14_1_detail.png" class="img-thumbnail" style="width: 80% !important; height: auto;">
+                </li><br/>
+                <li>
+                    You can verify the value imported and post the bank statement
+                    <br/><img src="assets/screenshots/15_verify.png" class="img-thumbnail" style="width: 80% !important; height: auto;">
+                </li>
+                <br/>
+            </ul><br/>
+
+
+
+            <h2 style="font-size: 2.3rem; font-weight: 600; color: #007c8d; margin-bottom:1rem !important">
+                3. Advanced Configuration
+            </h2>
+
+            <h3 style="font-size: 1.7rem; font-weight: 600; color: #007c8d; margin-bottom:1rem !important">
+                3.1. Refresh Frequency
+            </h3>
+            <ul style="font-size: 1rem !important; font-weight:400">
+                <li>
+                    On the Airwallex account configuration page, you can set up the frequency 
+                    (hourly, daily or weekly) for Odoo to import information from Airwallex.
+                    <br/><img src="assets/screenshots/16_refresh.png" class="img-thumbnail" style="width: 80% !important; height: auto;">
+                </li><br/>
+                <li>
+                    To set up the refresh frequency, you can access the feature through the search 
+                    function if you have an ‘Admin’ role and are in developer mode. 
+                    The scheduled action is performed using ‘Airwallex.account.ir.cron’ to 
+                    fetch information from Airwallex. 
+                    <br/><img src="assets/screenshots/17_search.png" class="img-thumbnail" style="width: 80% !important; height: auto;">
+                </li><br/>
+                <li>
+                    You can modify the value here to select your preferred refresh frequency:
+                    <br/><img src="assets/screenshots/18_value.png" class="img-thumbnail" style="width: 80% !important; height: auto;">
+                </li><br/>
+            </ul>
+
+
+
+        <div class="contents local topic" id="support">
+            <h2 style="font-size: 2.3rem; font-weight: 600; color: #007c8d; margin-bottom:1rem !important">
+                Contact & Support
+            </h2>
+            <p style="font-size: 1.2rem !important; font-weight:400">
+                If you are experiencing any issues with your Odoo connection, 
+                please raise a ticket with the Airwallex 
+                customer support team (https://help.airwallex.com/hc/en-gb/requests/new)
+                or contact Airwallex at
+                <a class="reference external" href="mailto:support&#64;airwallex.com">support@airwallex.com</a>
+            </p>
+        </div>
+    </body>
+</html>

@@ -1,0 +1,173 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    self.env.user.
+
+    <record id="view_airwallex_balance_kanban" model="ir.ui.view">
+        <field name="name">view.airwallex.balance.kanban</field>
+        <field name="model">airwallex.balance</field>
+        <field name="arch" type="xml">
+            <kanban>
+                <templates>
+                    <t t-name="kanban-box">
+                        <div t-attf-class="oe_kanban_content p-3">
+                            <div t-attf-class="o_kanban_card_header">
+                                <div class="o_kanban_card_header_title">
+                                    <div class="o_primary">
+                                        <a type="object" name="action_open_form">
+                                            <h2>
+                                                <field name="display_name"/>
+                                            </h2>
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col overflow-hidden text-left">
+                                    <span>Available amount</span>
+                                </div>
+                                <div class="col-auto text-right">
+                                    <span>
+                                        <field name="available_amount" widget="monetary" options="{'currency_field': 'currency_id'}"/>
+                                    </span>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col overflow-hidden text-left">
+                                    <span>Total amount</span>
+                                </div>
+                                <div class="col-auto text-right">
+                                    <span>
+                                        <field name="total_amount" widget="monetary" options="{'currency_field': 'currency_id'}"/>
+                                    </span>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col overflow-hidden text-left">
+                                    <span>Pending amount</span>
+                                </div>
+                                <div class="col-auto text-right">
+                                    <span>
+                                        <field name="pending_amount" widget="monetary" options="{'currency_field': 'currency_id'}"/>
+                                    </span>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col overflow-hidden text-left">
+                                    <span>Reserved amount</span>
+                                </div>
+                                <div class="col-auto text-right">
+                                    <span>
+                                        <field name="reserved_amount" widget="monetary" options="{'currency_field': 'currency_id'}"/>
+                                    </span>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col overflow-hidden text-left">
+                                    <span>Journal</span>
+                                </div>
+                                <div class="col-auto text-right">
+                                    <span>
+                                        <field name="journal_id"/>
+                                    </span>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col overflow-hidden text-left">
+                                    <span>Last sync datetime</span>
+                                </div>
+                                <div class="col-auto text-right">
+                                    <span>
+                                        <field name="last_sync_datetime"/>
+                                    </span>
+                                </div>
+                            </div>
+                            <div class="oe_kanban_bottom_right">
+                                <div class="d-flex justify-content-between flex-row">
+                                    <button name="action_update_balance" type="object" class="btn btn-primary my-2">
+                                        <span>Update Balance</span>
+                                    </button>
+                                    <button name="button_bank_statements" type="object" class="btn btn-primary my-2" groups="account.group_account_invoice">
+                                        <span>View bank statements</span>
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </t>
+                </templates>
+            </kanban>
+        </field>
+    </record>
+
+    <record id="view_airwallex_balance_tree" model="ir.ui.view">
+        <field name="name">view.airwallex.balance.tree</field>
+        <field name="model">airwallex.balance</field>
+        <field name="arch" type="xml">
+            <tree>
+                <field name="airwallex_account_id" />
+                <field name="currency_id" />
+                <field name="available_amount" />
+                <field name="pending_amount" />
+                <field name="reserved_amount" />
+                <field name="total_amount" />
+                <field name="journal_id" widget="many2one"/>
+                <field name="last_sync_datetime" />
+            </tree>
+        </field>
+    </record>
+
+    <record id="view_airwallex_balance_form" model="ir.ui.view">
+        <field name="name">view.airwallex.balance.form</field>
+        <field name="model">airwallex.balance</field>
+        <field eval="2" name="priority" />
+        <field name="arch" type="xml">
+            <form>
+                <header>
+                    <button string="Update Balance" name="action_update_balance" type="object" class="oe_highlight" groups="account.group_account_invoice"/>
+                </header>
+                <sheet>
+                    <div class="oe_button_box" name="button_box">
+                        <button class="oe_stat_button" name="button_bank_statements" string="Bank statements" type="object" icon="fa-bars" groups="account.group_account_invoice"/>
+                    </div>
+                    <group>
+                        <group>
+                            <field name="airwallex_account_id" />
+                            <field name="currency_id" />
+                        </group>
+                        <group>
+                        <label for="journal_id" />
+                            <div name="journal_div" class="d-flex">
+                                <field name="journal_id" widget="many2one"/>
+                                <button name="action_open_edit_journal_wizard" groups="airwallex.group_airwallex_admin" type="object" class="btn-primary" style="height: 22px; padding-top:0; margin-left: auto; margin-right: 0;">EDIT</button>
+                            </div>
+                            <field name="last_sync_datetime"/>
+                        </group>
+                    </group>
+                    <group string="Amount">
+                        <group>
+                            <field name="available_amount" />
+                            <field name="total_amount" />
+                        </group>
+                        <group>
+                            <field name="pending_amount" />
+                            <field name="reserved_amount" />
+                        </group>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record id="airwallex_balance_view_search" model="ir.ui.view">
+        <field name="name">airwallex.balance.view.search</field>
+        <field name="model">airwallex.balance</field>
+        <field name="arch" type="xml">
+            <search string="Airwallex balance">
+                <field name="airwallex_account_id" />
+                <field name="currency_id" />
+                <filter string="Airwallex account" name="account" context="{'group_by':'airwallex_account_id'}"/>
+                <filter string="Currency" name="currency" context="{'group_by': 'currency_id'}"/>
+            </search>
+        </field>
+    </record>
+</odoo>
