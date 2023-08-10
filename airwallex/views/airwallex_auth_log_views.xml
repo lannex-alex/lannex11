@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="airwallex_auth_log_view_tree" model="ir.ui.view">
+        <field name="name">airwallex.auth.log.view.tree</field>
+        <field name="model">airwallex.auth.log</field>
+        <field name="arch" type="xml">
+            <tree>
+                <field name="time" readonly="1"/>
+                <field name="post" readonly="1"/>
+            </tree>
+        </field>
+    </record>
+
+    <record id="airwallex_auth_log_view_form" model="ir.ui.view">
+        <field name="name">airwallex.auth.log.view.form</field>
+        <field name="model">airwallex.auth.log</field>
+        <field name="arch" type="xml">
+            <form string="Airwallex Auth Log">
+                <sheet>
+                    <group>
+                        <group>
+                            <field name="time" readonly="1"/>
+                        </group>
+                        <group>
+                            <field name="post" readonly="1"/>
+                        </group>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+</odoo>
