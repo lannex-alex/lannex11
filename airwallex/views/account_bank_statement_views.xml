@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="view_bank_statement_form_inherited" model="ir.ui.view">
+        <field name="name">account.bank.statement.form.inherited</field>
+        <field name="model">account.bank.statement</field>
+        <field name="inherit_id" ref="account.view_bank_statement_form" />
+        <field name="arch" type="xml">
+            <xpath expr="//field[@name='line_ids']//field[@name='date']" position="before">
+                <field name="airwallex_datetime" optional="show"/>
+            </xpath>
+            <xpath expr="//field[@name='line_ids']//field[@name='transaction_type']" position="after">
+                <field name="airwalex_payment_token" optional="hidden"/>
+            </xpath>
+        </field>
+    </record>
+</odoo>

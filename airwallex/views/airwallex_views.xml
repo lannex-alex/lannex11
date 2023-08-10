@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="airwallex_account_action" model="ir.actions.act_window">
+        <field name="name">Airwallex Account</field>
+        <field name="res_model">airwallex.account</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+
+    <record id="airwallex_balance_action" model="ir.actions.act_window">
+        <field name="name">Airwallex Wallet</field>
+        <field name="res_model">airwallex.balance</field>
+        <field name="view_mode">kanban,tree,form</field>
+        <field name="search_view_id" ref="airwallex_balance_view_search"/>
+    </record>
+
+    <record id="airwallex_statement_action" model="ir.actions.act_window">
+        <field name="name">Airwallex Statement</field>
+        <field name="res_model">airwallex.statement</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+
+    <record id="airwallex_auth_log_action" model="ir.actions.act_window">
+        <field name="name">Airwallex Auth Log</field>
+        <field name="res_model">airwallex.auth.log</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+
+    <menuitem
+        id="airwallex_account_menu"
+        name="Airwallex"
+        web_icon="airwallex,static/description/app.png"
+        sequence="50" />
+
+    <menuitem
+        id="airwallex_menu_balance"
+        name="Airwallex Wallet"
+        action="airwallex_balance_action"
+        parent="airwallex_account_menu"
+        sequence="1" />
+
+    <menuitem
+        id="airwallex_menu_configuration"
+        name="Configuration"
+        parent="airwallex_account_menu"
+        sequence="5" />
+
+    <menuitem
+        id="airwallex_menu_account"
+        name="Airwallex Account"
+        action="airwallex_account_action"
+        parent="airwallex_menu_configuration"
+        sequence="1" />
+
+    <menuitem id="airwallex_menu_statement"
+        name="Airwallex Statements"
+        action="airwallex_statement_action"
+        parent="airwallex_menu_configuration"
+        sequence="10"/>
+
+    <menuitem id="airwallex_menu_auth_log"
+        name="Airwallex Auth Logs"
+        action="airwallex_auth_log_action"
+        parent="airwallex_menu_configuration"
+        sequence="10"/>
+</odoo>

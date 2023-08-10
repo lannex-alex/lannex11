@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="airwallex_statement_view_tree" model="ir.ui.view">
+        <field name="name">airwallex.statement.view.tree</field>
+        <field name="model">airwallex.statement</field>
+        <field name="arch" type="xml">
+            <tree>
+                <field name="create_date"/>
+                <field name="airwallex_account_id"/>
+            </tree>
+        </field>
+    </record>
+
+    <record id="airwallex_statement_view_form" model="ir.ui.view">
+        <field name="name">airwallex.statement.view.form</field>
+        <field name="model">airwallex.statement</field>
+        <field name="arch" type="xml">
+            <form string="Airwallex Statement">
+                <sheet>
+                    <group>
+                        <field name="create_date"/>
+                        <field name="airwallex_account_id" />
+                        <field name="api_response" />
+                        <field name="bank_statement_ids" widget="many2many_tags" />
+                        <field name="bank_statement_line_ids" widget="one2many" />
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+</odoo>

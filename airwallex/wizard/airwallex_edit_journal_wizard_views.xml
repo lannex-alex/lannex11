@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <record id="airwallex_edit_journal_wizard_form" model="ir.ui.view">
+        <field name="name">airwallex.edit.journal.wizard.form</field>
+        <field name="model">airwallex.edit.journal.wizard</field>
+        <field name="type">form</field>
+        <field name="arch" type="xml">
+            <form>
+                <group>
+                    <field name="currency_id" invisible="1"/>
+                    <field name="balance_id" invisible="1"/>
+                    <field name="journal_id" domain="[('type', '=', 'bank'), '|', ('currency_id', '=', currency_id), ('currency_id', '=', False)]"/>
+                    <field name="init_journal" widget="radio" required="1"/>
+                    <field name="threshold_date" attrs="{'invisible': [('init_journal', '!=', 'import_historic_data')]}"/>
+                </group>
+                <div class="alert alert-danger" attrs="{'invisible': [('init_journal', '!=', 'import_historic_data')]}" role="alert">
+                    Once the process finish please go check the bank statement on the journal. Please verify the following 2 things:
+                    <ul>
+                        <li>Starting Balance</li>
+                        <li>Endind Balance</li>
+                    </ul>
+                    Once verified or corrected, you will need to <b>Post</b> the bank statement. Once this action is done the wallet is correctly setup on Odoo.
+                </div>
+                <footer>
+                    <button name="process" string="Apply" type="object" class="oe_highlight" />
+                    <button string="Cancel" special="cancel" class="oe_highlight" />
+                </footer>
+            </form>
+        </field>
+    </record>
+
+</odoo>
