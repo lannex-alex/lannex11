@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="view_account_journal_form_inherited" model="ir.ui.view">
+        <field name="name">account.journal.form.inherited</field>
+        <field name="model">account.journal</field>
+        <field name="inherit_id" ref="account.view_account_journal_form" />
+        <field name="arch" type="xml">
+            <xpath expr="//field[@name='bank_statements_source']" position="after">
+                <field name="airwallex_balance_ids" attrs="{'invisible': [('type', '!=', 'bank')]}" widget="many2many_tags"/>
+            </xpath>
+        </field>
+    </record>
+
+    <record id="account_journal_dashboard_kanban_view_inherited" model="ir.ui.view">
+        <field name="name">account.journal.kanban.inherited</field>
+        <field name="model">account.journal</field>
+        <field name="inherit_id" ref="account.account_journal_dashboard_kanban_view" />
+        <field name="arch" type="xml">
+            <xpath expr="//field[@name='alias_domain']" position="after">
+                <field name="airwallex_balance_ids" invisible="1"/>
+            </xpath>
+            <xpath expr="//div[@name='bank_journal_cta']" position="attributes">
+                <attribute name="attrs">{'invisible': [('airwallex_balance_ids', '!=', False)]}</attribute>
+            </xpath>
+            <xpath expr="//div[@name='bank_journal_cta']" position="after">
+                <div name="airwallex" class="mt-3 mt-sm-0">
+                    <span class="oe_inline">Airwallex Account: </span>
+                    <field name="airwallex_balance_ids" widget="many2many_tags" attrs="{'invisible': [('airwallex_balance_ids', '=', False)]}" class="oe_inline"/>
+                </div>
+            </xpath>
+            <xpath expr="//a[@name=&quot;action_configure_bank_journal&quot;]" position="attributes">
+                <attribute name="attrs">{'invisible': [('airwallex_balance_ids', '!=', False)]}</attribute>
+            </xpath>
+        </field>
+    </record>
+</odoo>
